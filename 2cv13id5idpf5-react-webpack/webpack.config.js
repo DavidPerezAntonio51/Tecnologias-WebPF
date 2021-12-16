@@ -47,7 +47,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.png$/i,
+        test: /\.(png|gif)$/i,
         use: ["file-loader?name=Assets/[name].[ext]"],
       }
     ],
