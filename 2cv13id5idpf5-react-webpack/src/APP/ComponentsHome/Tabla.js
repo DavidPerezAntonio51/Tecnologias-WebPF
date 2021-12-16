@@ -12,7 +12,7 @@ class Tabla extends Component {
         this.updateTable = this.updateTable.bind(this);
     }
     componentDidMount() {
-        fetch('http://localhost:8080/2CV13ID5IDP4/API/getQuestions')
+        fetch('http://localhost:8080/2CV13ID5IDPF5/API/getQuestions')
             .then(
                 response => {
                     return response.ok ? response.json() : response.status;
@@ -28,7 +28,7 @@ class Tabla extends Component {
             );
     }
     updateTable(e){
-        fetch('http://localhost:8080/2CV13ID5IDP4/API/getQuestions')
+        fetch('http://localhost:8080/2CV13ID5IDPF5/API/getQuestions')
             .then(
                 response => {
                     return response.ok ? response.json() : response.status;

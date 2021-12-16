@@ -27,7 +27,7 @@ class Acciones extends Component {
             .then(result => {
                 console.log(result);
                 if (result.isConfirmed) {
-                    fetch('http://localhost:8080/2CV13ID5IDP4/API/deleteQuestion?pregunta=' + this.props.pregunta)
+                    fetch('http://localhost:8080/2CV13ID5IDPF5/API/deleteQuestion?pregunta=' + this.props.pregunta)
                         .then(Response => {
                             if (Response.ok) {
                                 MySwal.fire({
@@ -77,15 +77,15 @@ class Acciones extends Component {
                 <Row className="justify-content-md-center">
                     <Col md="auto">
                         <Stack direction="horizontal" gap={3}>
-                            <Button as={Link} to={"/2CV13ID5IDP4/play" + "?pregunta=" + this.props.pregunta} variant="outline-success">
+                            <Button as={Link} to={"/2CV13ID5IDPF5/play" + "?pregunta=" + this.props.pregunta} variant="outline-success">
                                 Jugar
                             </Button>
                             <div className="vr" />
-                            <Button as={Link} to={"/2CV13ID5IDP4/preview" + "?pregunta=" + this.props.pregunta} variant="outline-info">
+                            <Button as={Link} to={"/2CV13ID5IDPF5/preview" + "?pregunta=" + this.props.pregunta} variant="outline-info">
                                 Previsualizar
                             </Button>
                             <div className="vr" />
-                            <Button as={Link} to={"/2CV13ID5IDP4/modify" + "?pregunta=" + this.props.pregunta} variant="outline-light">
+                            <Button as={Link} to={"/2CV13ID5IDPF5/modify" + "?pregunta=" + this.props.pregunta} variant="outline-light">
                                 Modificar
                             </Button>
                             <div className="vr" />

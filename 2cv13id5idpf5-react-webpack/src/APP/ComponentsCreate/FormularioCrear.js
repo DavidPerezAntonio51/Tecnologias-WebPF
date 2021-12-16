@@ -42,7 +42,7 @@ class Formulario extends Component {
     }
     render() {
         return (
-            <Form id="formulario" method="post" action="http://localhost:8080/2CV13ID5IDP4/saveQuestion" encType={this.state.Radar||this.state.Puntero?"multipart/form-data":"application/x-www-form-urlencoded" } noValidate validated={this.state.validado} onSubmit={this.handleSubmit}>
+            <Form id="formulario" method="post" action="http://localhost:8080/2CV13ID5IDPF5/saveQuestion" encType={this.state.Radar||this.state.Puntero?"multipart/form-data":"application/x-www-form-urlencoded" } noValidate validated={this.state.validado} onSubmit={this.handleSubmit}>
                 <Stack gap={3}>
                     <Row>
                         <Col>

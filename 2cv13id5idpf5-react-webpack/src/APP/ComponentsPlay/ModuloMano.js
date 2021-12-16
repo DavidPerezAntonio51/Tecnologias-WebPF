@@ -14,7 +14,7 @@ class ModuloMano extends Component {
     }
     componentDidMount() {
         const pregunta = window.location.search
-        fetch('http://localhost:8080/2CV13ID5IDP4/API/getQuestion' + pregunta)
+        fetch('http://localhost:8080/2CV13ID5IDPF5/API/getQuestion' + pregunta)
             .then(result => {
                 return result.ok ? result.json() : result.status
             })

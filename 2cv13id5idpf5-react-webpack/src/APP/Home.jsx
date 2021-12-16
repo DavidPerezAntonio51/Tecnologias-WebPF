@@ -29,7 +29,7 @@ class Home extends Component {
                 <Container>
                     <Row>
                         <Col>
-                            <Button variant="outline-light" as={Link}to="/2CV13ID5IDP4/create">Crear Pregunta</Button>
+                            <Button variant="outline-light" as={Link}to="/2CV13ID5IDPF5/create">Crear Pregunta</Button>
                         </Col>
                     </Row>
                 </Container>

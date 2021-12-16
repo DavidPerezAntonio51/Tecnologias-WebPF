@@ -28,7 +28,7 @@ class Login extends Component {
             method: 'POST',
             body: JSON.stringify(data),
         }
-        fetch('http://localhost:8080/2CV13ID5IDP4/API/Login', config)
+        fetch('http://localhost:8080/2CV13ID5IDPF5/API/Login', config)
             .then(result => {
                 return result.ok ? result.json() : result.status
             })

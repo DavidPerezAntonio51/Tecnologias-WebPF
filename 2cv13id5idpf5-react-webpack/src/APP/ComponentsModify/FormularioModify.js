@@ -25,7 +25,7 @@ class FormularioModify extends Component {
     componentDidMount() {
         const pregun = window.location.search;
         console.log(pregun);
-        fetch('http://localhost:8080/2CV13ID5IDP4/API/getQuestion'+pregun)
+        fetch('http://localhost:8080/2CV13ID5IDPF5/API/getQuestion'+pregun)
             .then(
                 response => {
                     return response.ok ? response.json() : response.status;
@@ -54,7 +54,7 @@ class FormularioModify extends Component {
     }
     render() {
         return (
-            <Form id="formify" method="post" action="http://localhost:8080/2CV13ID5IDP4/updateQuestion" encType={this.state.Radar||this.state.Puntero?"multipart/form-data":"application/x-www-form-urlencoded"}>
+            <Form id="formify" method="post" action="http://localhost:8080/2CV13ID5IDPF5/updateQuestion" encType={this.state.Radar||this.state.Puntero?"multipart/form-data":"application/x-www-form-urlencoded"}>
                 <Stack gap={3}>
                     
                     <Row>    

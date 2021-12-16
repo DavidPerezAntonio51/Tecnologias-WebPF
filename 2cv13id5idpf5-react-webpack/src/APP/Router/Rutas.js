@@ -38,32 +38,32 @@ class Rutas extends Component {
     render() {
         return (
             <Switch>
-                <Route exact path="/2CV13ID5IDP4/">
-                   <Redirect to="/2CV13ID5IDP4/login"/>
+                <Route exact path="/2CV13ID5IDPF5/">
+                   <Redirect to="/2CV13ID5IDPF5/login"/>
                 </Route>
-                <Route exact path="/2CV13ID5IDP4/login">
-                    {this.state.User?<Redirect to="/2CV13ID5IDP4/home"/>:<Login handleLogin={this.handleLogin}/>}
+                <Route exact path="/2CV13ID5IDPF5/login">
+                    {this.state.User?<Redirect to="/2CV13ID5IDPF5/home"/>:<Login handleLogin={this.handleLogin}/>}
                 </Route>
-                <Route exact path="/2CV13ID5IDP4/home">
+                <Route exact path="/2CV13ID5IDPF5/home">
                     {this.state.User
                     ?<Home title="Crear, Ver, Modificar y Eliminar" handleLogout={this.handleLogout} User={this.state.User}/>
-                    :<Redirect to="/2CV13ID5IDP4/login"/>}
+                    :<Redirect to="/2CV13ID5IDPF5/login"/>}
                 </Route>
-                <Route exact path="/2CV13ID5IDP4/play">
+                <Route exact path="/2CV13ID5IDPF5/play">
                     {this.state.User
                     ?<Play/>
-                    :<Redirect to="/2CV13ID5IDP4/login"/>}
+                    :<Redirect to="/2CV13ID5IDPF5/login"/>}
                 </Route>
-                <Route exact path="/2CV13ID5IDP4/create">
+                <Route exact path="/2CV13ID5IDPF5/create">
                     {this.state.User
                     ?<Crear title="Crea una nueva pregunta llenando los datos" />
-                    :<Redirect to="/2CV13ID5IDP4/login"/>}
+                    :<Redirect to="/2CV13ID5IDPF5/login"/>}
                 </Route>
 
-                <Route exact path="/2CV13ID5IDP4/modify">
+                <Route exact path="/2CV13ID5IDPF5/modify">
                     {this.state.User
                     ?<Modify title="Edita los datos de las preguntas" />
-                    :<Redirect to="/2CV13ID5IDP4/login"/>}
+                    :<Redirect to="/2CV13ID5IDPF5/login"/>}
                 </Route>
 
             </Switch>
