@@ -21,17 +21,17 @@ class ModuloMano extends Component {
             .then(data => {
                 if (data.Tamaño == 10) {
                     this.setState({
-                        objetos: [<h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>,<h1></h1>, <h1><Image className="Imaplay" src={"http:\\\\localhost:8080" + data.Puntero} fluid /></h1>]
+                        objetos: [<h1><Image className={this.props.espejo?"Espejo":"Imaplay"} src={"http:\\\\localhost:8080" + data.Puntero} fluid /></h1>,<h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>,<h1></h1>]
                     })
                 }
                 if (data.Tamaño == 20) {
                     this.setState({
-                        objetos: [<h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1><Image className="Imaplay" src={"http:\\\\localhost:8080" + data.Puntero} fluid /></h1>,<h1></h1>, <h1></h1>]
+                        objetos: [<h1><Image className={this.props.espejo?"Espejo":"Imaplay"} src={"http:\\\\localhost:8080" + data.Puntero} fluid /></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>,<h1></h1>, <h1></h1>]
                     })
                 }
                 if (data.Tamaño == 30) {
                     this.setState({
-                        objetos: [<h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1><Image className="Imaplay" src={"http:\\\\localhost:8080" + data.Puntero} fluid /></h1>,<h1></h1>,<h1></h1>, <h1></h1>],
+                        objetos: [<h1><Image className={this.props.espejo?"Espejo":"Imaplay"} src={"http:\\\\localhost:8080" + data.Puntero} fluid /></h1>,<h1></h1>,<h1></h1>, <h1></h1>,<h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>, <h1></h1>] 
                     })
                 }
 

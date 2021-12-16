@@ -30,6 +30,16 @@
     color: rgb(0, 0, 0);
   }
 
+  .Espejo{
+    transform: scaleX(-1);
+    position: relative;
+    justify-content: center;
+    top: 0;
+    left: 12vh;
+    width: 7vh;
+    height: 7vh;
+  }
+
   .textV{
     color: white;
   }
@@ -76,7 +86,7 @@
 
    .fondocasi2{
     color: rgb(109, 243, 109); 
-    background-color: rgb(109, 243, 109));
+    background-color: rgb(109, 243, 109);
    }
 
    .fondocasi3{

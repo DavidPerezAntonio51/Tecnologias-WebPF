@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Radares>
-    <Radar name="Radar 1" Ruta="/2CV13ID5IDP4/RadaresPredeterminados/rad1.mp3"/>
-    <Radar name="Radar 2" Ruta="/2CV13ID5IDP4/RadaresPredeterminados/rad2.mp3"/>
-    <Radar name="Muffin 1" Ruta="/2CV13ID5IDP4/RadaresPredeterminados/hua.mp3"/>
+    <Radar name="Radar 1" Ruta="/2CV13ID5IDPF5/RadaresPredeterminados/rad1.mp3"/>
+    <Radar name="Radar 2" Ruta="/2CV13ID5IDPF5/RadaresPredeterminados/rad2.mp3"/>
+    <Radar name="Muffin 1" Ruta="/2CV13ID5IDPF5/RadaresPredeterminados/hua.mp3"/>
 </Radares>

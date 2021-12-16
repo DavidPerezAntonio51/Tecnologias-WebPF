@@ -13,7 +13,7 @@ class ModuloJuego extends Component {
             ValorD: 10,
             RespuestaActual: 1,
             Color: "fondodav",
-            ControlFlag: true,
+            ControlFlag: true,            
         }
         this.updateIzquierdo = this.updateIzquierdo.bind(this);
         this.updateDerecho = this.updateDerecho.bind(this);
@@ -94,7 +94,7 @@ class ModuloJuego extends Component {
                         <ModuloMano handlerUpdate={this.updateIzquierdo} />
                     </Col>
                     <Col className={this.state.Color}>
-                        <ModuloMano handlerUpdate={this.updateDerecho} />
+                        <ModuloMano handlerUpdate={this.updateDerecho} espejo={true} />
                     </Col>
                     <Col md={5} lg={5}>
                         <Container>
