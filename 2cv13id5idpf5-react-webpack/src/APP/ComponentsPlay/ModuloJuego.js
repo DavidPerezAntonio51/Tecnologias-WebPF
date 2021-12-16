@@ -3,6 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import ModuloMano from './ModuloMano.js';
 import Stack from 'react-bootstrap/Stack';
 import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
 
 class ModuloJuego extends Component {
@@ -13,11 +14,26 @@ class ModuloJuego extends Component {
             ValorD: 10,
             RespuestaActual: 1,
             Color: "fondodav",
-            ControlFlag: true,            
+            ControlFlag: true, 
+            contador: 0,
+            minutos: 0,            
         }
         this.updateIzquierdo = this.updateIzquierdo.bind(this);
         this.updateDerecho = this.updateDerecho.bind(this);
     }
+
+    componentDidMount(){
+        this.micontador= setInterval(() =>{
+            this.setState({
+                contador: this.state.contador +=1,
+            })            
+        },1000); 
+    }
+
+    componentWillUnmount(){
+        clearInterval(this.micontador);
+    }
+
     updateIzquierdo(valor) {
         this.setState({
             ValorI: valor
@@ -30,6 +46,14 @@ class ModuloJuego extends Component {
     }
     componentDidUpdate(prevPops, prevState) {
         var RespuestaPredecida
+
+        if(this.state.contador==60){
+            this.setState({
+                contador: 0,
+                minutos: this.state.minutos +=1, 
+        })
+    }
+
         if (this.state.ValorI != prevState.ValorI) {
             RespuestaPredecida= (this.state.ValorD * this.props.VIC) / this.props.VDC
             this.setState({
@@ -85,7 +109,9 @@ class ModuloJuego extends Component {
                 })
             }
         }
+
     }
+
     render() {
         return (
             <Container>
@@ -102,11 +128,12 @@ class ModuloJuego extends Component {
                                 <Col>
                                     <Stack gap={3}>
                                         <Button as={Link} to="/2CV13ID5IDPF5/home" size="lg" variant="outline-light">Menu Principal </Button>
+                                        <Form.Label>Tu tiempo: {this.state.minutos} minutos y {this.state.contador} segundos</Form.Label>
                                     </Stack>
                                 </Col>
                             </Row>
                         </Container>
-                    </Col>
+                    </Col>                   
                 </Row>
             </Container>
         );
