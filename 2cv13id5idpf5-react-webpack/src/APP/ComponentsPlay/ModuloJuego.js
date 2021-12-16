@@ -5,13 +5,16 @@ import Stack from 'react-bootstrap/Stack';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+import Cat from '../assets/Cat.gif';
 
 class ModuloJuego extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            ValorI: 10,
-            ValorD: 10,
+            ValorI: 1,
+            ValorD: 1,
             RespuestaActual: 1,
             Color: "fondodav",
             ControlFlag: true, 
@@ -20,6 +23,7 @@ class ModuloJuego extends Component {
         }
         this.updateIzquierdo = this.updateIzquierdo.bind(this);
         this.updateDerecho = this.updateDerecho.bind(this);
+        this.MySwal = withReactContent(Swal);
     }
 
     componentDidMount(){
@@ -95,7 +99,13 @@ class ModuloJuego extends Component {
             }
         }
         if (this.props.RespuestaCorrecta == this.state.RespuestaActual && prevState.RespuestaActual!=this.state.RespuestaActual) {
-            console.log("¡Exito!")
+            this.MySwal.fire({
+                title:"¡Felicidades!",
+                text:"Tiempo Total = "+"Segundos",
+                background: '#212529',
+                color: '#716add',
+                backdrop: 'rgba(72, 132, 255, 0.55) url('+Cat+') right top no-repeat',
+            })
             this.setState({
                 Color: "fondotrue",
             })
