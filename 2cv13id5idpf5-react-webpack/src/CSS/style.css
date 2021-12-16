@@ -1,0 +1,154 @@
+.login-box {
+    width: 350px;
+    height: 450px;
+    background: #212529;
+    color: rgb(255, 255, 255);
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 15px 15px;
+    border-style:groove;
+    border-radius: 25px;
+    border-color: rgb(207, 207, 207);
+
+  }
+
+ 
+
+
+  #swal2-title{
+    color: white;
+  }
+
+  #swal2-html-container{
+    color: white;
+  }
+
+  .textB{
+    color: rgb(0, 0, 0);
+  }
+
+  .textV{
+    color: white;
+  }
+
+  .textV1{
+    color: #ffc107;
+    padding-top: 20px;
+  }
+  
+  Label{
+    color: rgb(255, 0, 0);
+  }
+
+  .Imaplay {
+    position: relative;
+    justify-content: center;
+    top: 0;
+    left: 12vh;
+    width: 7vh;
+    height: 7vh;
+  }
+
+  .login-boton {
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    padding-top: 25px;
+  }
+
+  .fondodav{
+   color: white; 
+   background-color: white;
+  }
+
+  .fondotrue{
+    color: rgb(0, 255, 0); 
+    background-color: rgb(0, 255, 0);
+   }
+
+   .fondocasi1{
+    color: rgb(94, 255, 94); 
+    background-color: rgb(94, 255, 94);
+   }
+
+   .fondocasi2{
+    color: rgb(109, 243, 109); 
+    background-color: rgb(109, 243, 109));
+   }
+
+   .fondocasi3{
+    color: rgb(177, 255, 177);  
+    background-color: rgb(177, 255, 177);
+   }
+
+  .login-lab {
+    padding-top: 15px;
+    color: rgb(255, 255, 255);
+  }
+
+  .login-labi {
+    color: rgb(0, 0, 0);
+  }
+
+  .login-body{
+    background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
+    color: rgb(228, 20, 20);
+    height: 90vh;
+    width: 150vh;
+  }
+
+  .logitext{
+  color: rgb(255, 255, 255);
+  justify-content: center;
+  display: flex;
+  padding-bottom: 15px;
+  }
+
+  body{
+    min-height: 100vh;
+    max-height: 100vh;
+    background: linear-gradient(#100522, #7597de);
+  
+  }
+
+  section{
+
+    z-index: -10000;
+  }
+
+  section img{
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -10000;
+  }
+
+  .moon{
+    width: 100%;
+    height: 100%;
+    transform: scale(70%, 30%);
+    transform: translate(-25%, -10%);
+    z-index: -10000;
+  }
+
+.divsab
+    {
+        border-style: solid;
+        width:300px;
+        max-width:300px;
+        min-width:300px;
+
+        height:20px;
+        max-height:20px;
+        min-height:20px;
+
+        color:red;
+    }
+
