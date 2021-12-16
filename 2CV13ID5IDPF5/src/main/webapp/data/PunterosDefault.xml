@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Punteros>
+    <Puntero name="Predeterminado" Ruta="/2CV13ID5IDP4/PunterosPredeterminados/Predeterminado.png"/>
+    <Puntero name="Terror 1" Ruta="/2CV13ID5IDP4/PunterosPredeterminados/Terror1.png"/>
+    <Puntero name="Terror 2" Ruta="/2CV13ID5IDP4/PunterosPredeterminados/Terror2.png"/>
+    <Puntero name="Protoss" Ruta="/2CV13ID5IDP4/PunterosPredeterminados/Protoss.png"/>
+    <Puntero name="Zerg" Ruta="/2CV13ID5IDP4/PunterosPredeterminados/Zerg.png"/>
+    <Puntero name="Terran" Ruta="/2CV13ID5IDP4/PunterosPredeterminados/Terran.png"/>
+    <Puntero name="Hollow Shadow" Ruta="/2CV13ID5IDP4/PunterosPredeterminados/HollowShadow.png"/>
+    <Puntero name="Hollow Biker" Ruta="/2CV13ID5IDP4/PunterosPredeterminados/HollowBiker.png"/>
+    <Puntero name="Runa" Ruta="/2CV13ID5IDP4/PunterosPredeterminados/Runa.png"/>
+    <Puntero name="Isaac" Ruta="/2CV13ID5IDP4/PunterosPredeterminados/Issac.png"/>
+</Punteros>

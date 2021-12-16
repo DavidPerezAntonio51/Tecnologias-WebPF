@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<preguntas>
+    <pregunta nombrePregunta="Pregunta 1">
+        <relacion izquierda="1" derecha="1"/>
+        <tamaño>10</tamaño>
+        <puntero ruta="/2CV13ID5IDP4/PunterosPredeterminados/Predeterminado.png"/>
+        <radar ruta="/2CV13ID5IDP4/RadaresPredeterminados/rad1.mp3"/>
+    </pregunta>
+    <pregunta nombrePregunta="Pregunta 2">
+        <relacion izquierda="1" derecha="1"/>
+        <tamaño>10</tamaño>
+        <puntero ruta="/2CV13ID5IDP4/PunterosPredeterminados/Predeterminado.png"/>
+        <radar ruta="/2CV13ID5IDP4/RadaresPredeterminados/rad1.mp3"/>
+    </pregunta>
+    <pregunta nombrePregunta="Pregunta 3">
+        <relacion izquierda="1" derecha="1"/>
+        <tamaño>10</tamaño>
+        <puntero ruta="/2CV13ID5IDP4/PunterosPredeterminados/Predeterminado.png"/>
+        <radar ruta="/2CV13ID5IDP4/RadaresPredeterminados/rad1.mp3"/>
+    </pregunta>
+</preguntas>
