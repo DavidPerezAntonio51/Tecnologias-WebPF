@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Form } from 'react-bootstrap';
 import { Container, Row, Col } from 'react-bootstrap';
 import Image from 'react-bootstrap/Image'
-import Stack from 'react-bootstrap/Stack'
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 
 class PunterosDefault extends Component {
@@ -28,7 +27,7 @@ class PunterosDefault extends Component {
                 Tipo: "Sonido",
             });
         }
-        fetch('http://localhost:8080/2CV13ID5IDP4/API/'+api)
+        fetch('http://localhost:8080/2CV13ID5IDPF5/API/'+api)
         .then(
             response => {
                 return response.ok? response.json():response.status;
@@ -80,8 +79,5 @@ class PunterosDefault extends Component {
             );       
     }
 }
-//"http:\\\\localhost:8080"+
 
-// <Image src={"http:\\\\localhost:8080"+this.state.Selected} fluid/>
-// <Audio src={"http:\\\\localhost:8080"+this.state.Selected} autoplay loop />
 export default PunterosDefault;

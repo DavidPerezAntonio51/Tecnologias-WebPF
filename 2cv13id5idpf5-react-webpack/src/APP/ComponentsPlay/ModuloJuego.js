@@ -101,7 +101,7 @@ class ModuloJuego extends Component {
                             <Row>
                                 <Col>
                                     <Stack gap={3}>
-                                        <Button as={Link} to="/2CV13ID5IDP4/home" size="lg" variant="outline-light">Menu Principal </Button>
+                                        <Button as={Link} to="/2CV13ID5IDPF5/home" size="lg" variant="outline-light">Menu Principal </Button>
                                     </Stack>
                                 </Col>
                             </Row>

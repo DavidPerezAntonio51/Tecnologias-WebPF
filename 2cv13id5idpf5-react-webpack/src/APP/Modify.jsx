@@ -41,7 +41,7 @@ class Modify extends Component {
                 <Row >
                     <Col>
                         <Row>
-                            <Button as={Link} to="/2CV13ID5IDP4/home" size="lg" variant="outline-light">Regresar </Button>
+                            <Button as={Link} to="/2CV13ID5IDPF5/home" size="lg" variant="outline-light">Regresar </Button>
                         </Row>
                     </Col>
 
