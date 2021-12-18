@@ -31,7 +31,7 @@ class Play extends Component {
             <Container>
                 <Encabezado title={this.state.Pregunta.Nombre}></Encabezado>
                 <Row>
-                    <ModuloJuego RespuestaCorrecta={this.state.Pregunta.ValorI/this.state.Pregunta.ValorD} VDC={this.state.Pregunta.ValorD} VIC={this.state.Pregunta.ValorI}/>
+                    <ModuloJuego modo={this.props.modo} RespuestaCorrecta={this.state.Pregunta.ValorI/this.state.Pregunta.ValorD} VDC={this.state.Pregunta.ValorD} VIC={this.state.Pregunta.ValorI}/>
                 </Row>
             </Container>
          );

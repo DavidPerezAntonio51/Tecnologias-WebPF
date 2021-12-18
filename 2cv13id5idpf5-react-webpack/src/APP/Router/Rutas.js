@@ -4,7 +4,6 @@ import Home from '../Home.jsx';
 import Crear from '../Create.jsx';
 import Modify from '../Modify.jsx';
 import Play from '../Play.jsx';
-import List from '../Lista.jsx';
 import Login from '../Login.jsx';
 
 class Rutas extends Component {
@@ -51,7 +50,12 @@ class Rutas extends Component {
                 </Route>
                 <Route exact path="/2CV13ID5IDPF5/play">
                     {this.state.User
-                    ?<Play/>
+                    ?<Play modo="play"/>
+                    :<Redirect to="/2CV13ID5IDPF5/login"/>}
+                </Route>
+                <Route exact path="/2CV13ID5IDPF5/preview">
+                    {this.state.User
+                    ?<Play modo="demo"/>
                     :<Redirect to="/2CV13ID5IDPF5/login"/>}
                 </Route>
                 <Route exact path="/2CV13ID5IDPF5/create">

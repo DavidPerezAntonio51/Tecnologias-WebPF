@@ -12,7 +12,10 @@ class Personalizado extends Component {
                 <Form.Label className="textV" >
                     Carga tu Propio {this.props.tipo} \^^/
                 </Form.Label>
-                <Form.Control type="file" name={this.props.tipo} />
+                <Form.Control required type="file" name={this.props.tipo} />
+                <Form.Control.Feedback type="invalid">
+                        ¡No has subido archivos aun!
+                    </Form.Control.Feedback>
             </Form.Group>
         );
     }

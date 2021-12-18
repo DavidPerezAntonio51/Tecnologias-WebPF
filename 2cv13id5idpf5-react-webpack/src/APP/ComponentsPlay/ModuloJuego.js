@@ -111,15 +111,17 @@ class ModuloJuego extends Component {
                 this.setState({
                     Color: "fondocasi2",
                 })
-                this.audio.volume = 0.05
+                this.audio.volume = 0.5
             } else if (Math.abs(RespuestaPredecida - this.state.ValorD) == 3) {
                 this.setState({
                     Color: "fondocasi3",
-                    WhiteControlFlag: true,
                 })
-                this.audio.volume = 0.005
+                this.audio.volume = 0.05
             } else {
                 this.audio.volume = 0
+                this.setState({
+                    WhiteControlFlag: true,
+                })
             }
         }
         if (this.props.RespuestaCorrecta == this.state.RespuestaActual && prevState.RespuestaActual != this.state.RespuestaActual) {
@@ -171,6 +173,7 @@ class ModuloJuego extends Component {
                         title: '¿Olvidaste tu valor en Casa?',
                         text: 'Puedo esperarte mientras vas a buscarlo',
                         timer: 4500,
+                        backdrop: 'rgba(150, 0, 0, 0.78)',
                         didOpen: () => {
                             this.MySwal.showLoading();
                         },
