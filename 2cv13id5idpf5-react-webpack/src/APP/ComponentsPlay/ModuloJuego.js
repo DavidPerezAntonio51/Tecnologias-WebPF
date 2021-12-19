@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Card } from 'react-bootstrap';
 import ModuloMano from './ModuloMano.js';
 import Stack from 'react-bootstrap/Stack';
 import Button from 'react-bootstrap/Button';
@@ -27,6 +27,8 @@ class ModuloJuego extends Component {
         this.updateDerecho = this.updateDerecho.bind(this);
         this.MySwal = withReactContent(Swal);
         this.handlerSurrender = this.handlerSurrender.bind(this);
+        this.RespuestaPredecida
+        this.RespuestaAuxiliar
     }
 
     componentDidMount() {
@@ -62,7 +64,7 @@ class ModuloJuego extends Component {
         })
     }
     componentDidUpdate(prevPops, prevState) {
-        var RespuestaPredecida
+
         this.audio.play()
         console.log("1 actualizacion")
         if (this.state.contador == 60) {
@@ -73,21 +75,22 @@ class ModuloJuego extends Component {
         }
 
         if (this.state.ValorI != prevState.ValorI) {
-            RespuestaPredecida = (this.state.ValorD * this.props.VIC) / this.props.VDC
+            this.RespuestaAuxiliar=this.state.ValorI
+            this.RespuestaPredecida = (this.state.ValorD * this.props.VIC) / this.props.VDC
             this.setState({
                 RespuestaActual: this.state.ValorI / this.state.ValorD,
             })
-            if (Math.abs(RespuestaPredecida - this.state.ValorI) == 1) {
+            if (Math.abs(this.RespuestaPredecida - this.state.ValorI) == 1) {
                 this.setState({
                     Color: "fondocasi1",
                 })
                 this.audio.volume = 1
-            } else if (Math.abs(RespuestaPredecida - this.state.ValorI) == 2) {
+            } else if (Math.abs(this.RespuestaPredecida - this.state.ValorI) == 2) {
                 this.setState({
                     Color: "fondocasi2",
                 })
                 this.audio.volume = 0.05
-            } else if (Math.abs(RespuestaPredecida - this.state.ValorI) == 3) {
+            } else if (Math.abs(this.RespuestaPredecida - this.state.ValorI) == 3) {
                 this.setState({
                     Color: "fondocasi3",
                     WhiteControlFlag: true,
@@ -98,21 +101,22 @@ class ModuloJuego extends Component {
             }
         }
         if (this.state.ValorD != prevState.ValorD) {
-            RespuestaPredecida = (this.state.ValorI * this.props.VDC) / this.props.VIC
+            this.RespuestaAuxiliar=this.state.ValorD
+            this.RespuestaPredecida = (this.state.ValorI * this.props.VDC) / this.props.VIC
             this.setState({
                 RespuestaActual: this.state.ValorI / this.state.ValorD,
             })
-            if (Math.abs(RespuestaPredecida - this.state.ValorD) == 1) {
+            if (Math.abs(this.RespuestaPredecida - this.state.ValorD) == 1) {
                 this.setState({
                     Color: "fondocasi1",
                 })
                 this.audio.volume = 1
-            } else if (Math.abs(RespuestaPredecida - this.state.ValorD) == 2) {
+            } else if (Math.abs(this.RespuestaPredecida - this.state.ValorD) == 2) {
                 this.setState({
                     Color: "fondocasi2",
                 })
                 this.audio.volume = 0.5
-            } else if (Math.abs(RespuestaPredecida - this.state.ValorD) == 3) {
+            } else if (Math.abs(this.RespuestaPredecida - this.state.ValorD) == 3) {
                 this.setState({
                     Color: "fondocasi3",
                 })
@@ -125,14 +129,16 @@ class ModuloJuego extends Component {
             }
         }
         if (this.props.RespuestaCorrecta == this.state.RespuestaActual && prevState.RespuestaActual != this.state.RespuestaActual) {
-            this.MySwal.fire({
-                title: "¡Felicidades eres todo un Crack!",
-                text: "Tiempo Total = " + this.state.minutos + " Minutos y " + this.state.contador + " Segundos",
-                background: '#212529',
-                color: '#716add',
-                backdrop: 'rgba(72, 132, 255, 0.55) url(' + Cat + ') right top no-repeat',
-            })
-            this.audio.pause()
+            if (this.props.modo === "play") {
+                this.audio.pause()
+                this.MySwal.fire({
+                    title: "¡Felicidades eres todo un Crack!",
+                    text: "Tiempo Total = " + this.state.minutos + " Minutos y " + this.state.contador + " Segundos",
+                    background: '#212529',
+                    color: '#716add',
+                    backdrop: 'rgba(72, 132, 255, 0.55) url(' + Cat + ') right top no-repeat',
+                })
+            }
             clearInterval(this.micontador)
             this.setState({
                 Color: "fondotrue",
@@ -202,10 +208,77 @@ class ModuloJuego extends Component {
                             <Row>
                                 <Col>
                                     <Stack gap={3}>
-                                        {this.state.EndGameFlag
+                                        {this.props.modo == "demo"
                                             ? <Button as={Link} to="/2CV13ID5IDPF5/home" size="lg" variant="outline-light"> Volver al Menú</Button>
-                                            : <Button onClick={this.handlerSurrender} size="lg" variant="outline-light">¿Deseas Rendirte? </Button>}
-                                        <Form.Label>Tu tiempo: {this.state.minutos} minutos y {this.state.contador} segundos</Form.Label>
+                                            : this.state.EndGameFlag
+                                                ? <Button as={Link} to="/2CV13ID5IDPF5/home" size="lg" variant="outline-light"> Volver al Menú</Button>
+                                                : <Button onClick={this.handlerSurrender} size="lg" variant="outline-light">¿Deseas Rendirte? </Button>}
+                                        {this.props.modo == "demo"
+                                            ?
+                                            <Container>
+                                                <Stack gap={3}>
+
+                                                    <Row>
+                                                        <Col>
+                                                            <Card bg={
+                                                                this.RespuestaPredecida==undefined
+                                                                ?"light"
+                                                                :Math.abs(this.RespuestaPredecida-this.RespuestaAuxiliar)==0
+                                                                ?"success"
+                                                                :Math.abs(this.RespuestaPredecida-this.RespuestaAuxiliar)==1
+                                                                ?"warning"
+                                                                :Math.abs(this.RespuestaPredecida-this.RespuestaAuxiliar)==2
+                                                                ?"secondary"
+                                                                :"light"
+                                                            }
+                                                            text={
+                                                                this.RespuestaPredecida==undefined
+                                                                ?"dark"
+                                                                :Math.abs(this.RespuestaPredecida-this.RespuestaAuxiliar)==0
+                                                                ?"light"
+                                                                :Math.abs(this.RespuestaPredecida-this.RespuestaAuxiliar)==1
+                                                                ?"light"
+                                                                :Math.abs(this.RespuestaPredecida-this.RespuestaAuxiliar)==2
+                                                                ?"light"
+                                                                :"dark"
+                                                            }>
+                                                                <Card.Header as="h4">Datos de la Pregunta</Card.Header>
+                                                                <Card.Body>
+                                                                    <Card.Text>La proporcion debe ser:
+                                                                        <br />
+                                                                        {this.props.VIC} a {this.props.VDC}
+                                                                    </Card.Text>
+                                                                    <Card.Footer>{this.RespuestaPredecida==undefined
+                                                                    ?"Mueve Cualquier Puntero"
+                                                                    :Math.abs(this.RespuestaPredecida-this.RespuestaAuxiliar)==0
+                                                                    ?"Acertaste"
+                                                                    :"Tu respuesta Correcta Mas cercana es: "+this.RespuestaPredecida}</Card.Footer>
+                                                                </Card.Body>
+                                                            </Card>
+                                                        </Col>
+                                                    </Row>
+                                                    <Row md={2}>
+                                                        <Col>
+                                                            <Card>
+                                                                <Card.Header as="h4">Izq.</Card.Header>
+                                                                <Card.Body>
+                                                                    <Card.Text as="h4">{this.state.ValorI}</Card.Text>
+                                                                </Card.Body>
+                                                            </Card>
+                                                        </Col>
+                                                        <Col>
+                                                            <Card>
+                                                                <Card.Header as="h4">Derecha</Card.Header>
+                                                                <Card.Body>
+                                                                    <Card.Text as="h4">{this.state.ValorD}</Card.Text>
+                                                                </Card.Body>
+                                                            </Card>
+                                                        </Col>
+                                                    </Row>
+                                                </Stack>
+                                            </Container>
+                                            : <Form.Label>Tu tiempo: {this.state.minutos} minutos y {this.state.contador} segundos</Form.Label>
+                                        }
                                         {this.state.SurrenderFlag ? <Redirect to="/2CV13ID5IDPF5/home" /> : ""}
                                     </Stack>
                                 </Col>
