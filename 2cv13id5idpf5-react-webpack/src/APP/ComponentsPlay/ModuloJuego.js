@@ -75,7 +75,7 @@ class ModuloJuego extends Component {
         }
 
         if (this.state.ValorI != prevState.ValorI) {
-            this.RespuestaAuxiliar=this.state.ValorI
+            this.RespuestaAuxiliar = this.state.ValorI
             this.RespuestaPredecida = (this.state.ValorD * this.props.VIC) / this.props.VDC
             this.setState({
                 RespuestaActual: this.state.ValorI / this.state.ValorD,
@@ -101,7 +101,7 @@ class ModuloJuego extends Component {
             }
         }
         if (this.state.ValorD != prevState.ValorD) {
-            this.RespuestaAuxiliar=this.state.ValorD
+            this.RespuestaAuxiliar = this.state.ValorD
             this.RespuestaPredecida = (this.state.ValorI * this.props.VDC) / this.props.VIC
             this.setState({
                 RespuestaActual: this.state.ValorI / this.state.ValorD,
@@ -221,38 +221,38 @@ class ModuloJuego extends Component {
                                                     <Row>
                                                         <Col>
                                                             <Card bg={
-                                                                this.RespuestaPredecida==undefined
-                                                                ?"light"
-                                                                :Math.abs(this.RespuestaPredecida-this.RespuestaAuxiliar)==0
-                                                                ?"success"
-                                                                :Math.abs(this.RespuestaPredecida-this.RespuestaAuxiliar)==1
-                                                                ?"warning"
-                                                                :Math.abs(this.RespuestaPredecida-this.RespuestaAuxiliar)==2
-                                                                ?"secondary"
-                                                                :"light"
+                                                                this.RespuestaPredecida == undefined
+                                                                    ? "light"
+                                                                    : Math.abs(this.RespuestaPredecida - this.RespuestaAuxiliar) == 0
+                                                                        ? "success"
+                                                                        : Math.abs(this.RespuestaPredecida - this.RespuestaAuxiliar) == 1
+                                                                            ? "warning"
+                                                                            : Math.abs(this.RespuestaPredecida - this.RespuestaAuxiliar) == 2
+                                                                                ? "secondary"
+                                                                                : "light"
                                                             }
-                                                            text={
-                                                                this.RespuestaPredecida==undefined
-                                                                ?"dark"
-                                                                :Math.abs(this.RespuestaPredecida-this.RespuestaAuxiliar)==0
-                                                                ?"light"
-                                                                :Math.abs(this.RespuestaPredecida-this.RespuestaAuxiliar)==1
-                                                                ?"light"
-                                                                :Math.abs(this.RespuestaPredecida-this.RespuestaAuxiliar)==2
-                                                                ?"light"
-                                                                :"dark"
-                                                            }>
+                                                                text={
+                                                                    this.RespuestaPredecida == undefined
+                                                                        ? "dark"
+                                                                        : Math.abs(this.RespuestaPredecida - this.RespuestaAuxiliar) == 0
+                                                                            ? "light"
+                                                                            : Math.abs(this.RespuestaPredecida - this.RespuestaAuxiliar) == 1
+                                                                                ? "light"
+                                                                                : Math.abs(this.RespuestaPredecida - this.RespuestaAuxiliar) == 2
+                                                                                    ? "light"
+                                                                                    : "dark"
+                                                                }>
                                                                 <Card.Header as="h4">Datos de la Pregunta</Card.Header>
                                                                 <Card.Body>
                                                                     <Card.Text>La proporcion debe ser:
                                                                         <br />
                                                                         {this.props.VIC} a {this.props.VDC}
                                                                     </Card.Text>
-                                                                    <Card.Footer>{this.RespuestaPredecida==undefined
-                                                                    ?"Mueve Cualquier Puntero"
-                                                                    :Math.abs(this.RespuestaPredecida-this.RespuestaAuxiliar)==0
-                                                                    ?"Acertaste"
-                                                                    :"Tu respuesta Correcta Mas cercana es: "+this.RespuestaPredecida}</Card.Footer>
+                                                                    <Card.Footer>{this.RespuestaPredecida == undefined
+                                                                        ? "Mueve Cualquier Puntero"
+                                                                        : Math.abs(this.RespuestaPredecida - this.RespuestaAuxiliar) == 0
+                                                                            ? "Acertaste"
+                                                                            : "Tu respuesta Correcta Mas cercana es: " + this.RespuestaPredecida}</Card.Footer>
                                                                 </Card.Body>
                                                             </Card>
                                                         </Col>
@@ -277,7 +277,30 @@ class ModuloJuego extends Component {
                                                     </Row>
                                                 </Stack>
                                             </Container>
-                                            : <Form.Label>Tu tiempo: {this.state.minutos} minutos y {this.state.contador} segundos</Form.Label>
+                                            : <Card>
+                                                <Card.Header as="h2">Cronometro</Card.Header>
+                                                <Card.Body>
+                                                    <Row>
+                                                        <Col>
+                                                            <Card>
+                                                                <Card.Header as="h4">Min.</Card.Header>
+                                                                <Card.Body as="h5">{this.state.minutos}</Card.Body>
+                                                            </Card>
+                                                        </Col>
+                                                        <Col md={1}>
+                                                            <Row>
+                                                                <Card.Text as="h2">:</Card.Text>
+                                                            </Row>
+                                                        </Col>
+                                                        <Col>
+                                                            <Card>
+                                                                <Card.Header as="h4">Seg.</Card.Header>
+                                                                <Card.Body as="h5">{this.state.contador}</Card.Body>
+                                                            </Card>
+                                                        </Col>
+                                                    </Row>
+                                                </Card.Body>
+                                            </Card>
                                         }
                                         {this.state.SurrenderFlag ? <Redirect to="/2CV13ID5IDPF5/home" /> : ""}
                                     </Stack>
