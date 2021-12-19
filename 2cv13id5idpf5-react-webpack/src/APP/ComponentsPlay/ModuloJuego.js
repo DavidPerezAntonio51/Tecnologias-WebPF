@@ -138,8 +138,8 @@ class ModuloJuego extends Component {
                     color: '#716add',
                     backdrop: 'rgba(72, 132, 255, 0.55) url(' + Cat + ') right top no-repeat',
                 })
+                clearInterval(this.micontador)
             }
-            clearInterval(this.micontador)
             this.setState({
                 Color: "fondotrue",
                 EndGameFlag: true
