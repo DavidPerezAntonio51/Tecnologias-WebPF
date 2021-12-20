@@ -11,14 +11,7 @@ class App extends Component {
     render() {
         return (
                 <div>
-                    <ul>
-                        <li>
-                            <Link to="/2CV13ID5IDPF5/login">Home</Link>
-                        </li>
-                    </ul>
-                    <hr/>
-                    <Rutas/>
-                
+                    <Rutas/>              
                     <section>
                     <img src={stars} id = "stars"></img>
                     <img src={moon} id = "moon"  className="moon"></img>
