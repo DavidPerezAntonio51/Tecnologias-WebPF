@@ -66,20 +66,25 @@ class ModuloJuego extends Component {
     componentDidUpdate(prevPops, prevState) {
 
         this.audio.play()
-        console.log("1 actualizacion")
+        //Manejador del cronometro
         if (this.state.contador == 60) {
             this.setState({
                 contador: 0,
                 minutos: this.state.minutos += 1,
             })
         }
-
+        //revisa si hubo cambio en el puntero izquierdo
         if (this.state.ValorI != prevState.ValorI) {
+            //se llena la respuesta auxiliar
             this.RespuestaAuxiliar = this.state.ValorI
+            //se calcula la respuesta predecida con el modulo de prediccion
             this.RespuestaPredecida = (this.state.ValorD * this.props.VIC) / this.props.VDC
+            //se actualiza el estado de acuerdo a la posicion del puntero
             this.setState({
                 RespuestaActual: this.state.ValorI / this.state.ValorD,
             })
+            /*-------------------------------------------------------------*/
+            //aplicacion de niveles de volumen y colores de fondo
             if (Math.abs(this.RespuestaPredecida - this.state.ValorI) == 1) {
                 this.setState({
                     Color: "fondocasi1",
@@ -93,6 +98,7 @@ class ModuloJuego extends Component {
             } else if (Math.abs(this.RespuestaPredecida - this.state.ValorI) == 3) {
                 this.setState({
                     Color: "fondocasi3",
+                    //bandera necesaria para no entrar en bucle infinito
                     WhiteControlFlag: true,
                 })
                 this.audio.volume = 0.005
@@ -128,9 +134,12 @@ class ModuloJuego extends Component {
                 })
             }
         }
+        //condicion de respuesta correcta
         if (this.props.RespuestaCorrecta == this.state.RespuestaActual && prevState.RespuestaActual != this.state.RespuestaActual) {
             if (this.props.modo === "play") {
+                //detiene musica(radar)
                 this.audio.pause()
+                //lanza notificacion de felicitacion
                 this.MySwal.fire({
                     title: "¡Felicidades eres todo un Crack!",
                     text: "Tiempo Total = " + this.state.minutos + " Minutos y " + this.state.contador + " Segundos",

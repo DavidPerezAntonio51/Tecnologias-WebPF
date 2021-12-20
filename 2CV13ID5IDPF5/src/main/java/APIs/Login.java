@@ -32,15 +32,24 @@ public class Login extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        //Se definen las cabeceras
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
+        //Se obtiene el writer
         PrintWriter out = response.getWriter();
+        //El cuerpo de la Peticion se guarda en un objeto de tipo Ususario
         Usuario cliente = new Gson().fromJson(request.getReader(), Usuario.class);
+        //Se crea una plantilla de respuesta
         JsonResponse res = new JsonResponse();
+        //Se generan rutas escenciales
         String path = request.getServletContext().getRealPath("/");
         String XMLPath = path + "data\\Usuarios.xml";
+        //Se instancia un objeto administrador de XML
         AdminXML admin = new AdminXML(XMLPath);
-        if(admin.userEsist(cliente)){
+        //Se comprueba si el usuario existe en el archivo de usuarios
+        if(admin.userExist(cliente)){
+            /*Si el usuario Existe verifica que la contraseña sea correcta
+            y se llena la plantilla de respuesta*/
             if(admin.loginUser(cliente)){
                 res.setSuccess(Boolean.TRUE);
                 cliente.setPassword("");
@@ -53,6 +62,7 @@ public class Login extends HttpServlet {
             res.setSuccess(Boolean.FALSE);
             res.setError("Usuario no existente");
         }
+        //Se envia la respuesta convertida en Json
         out.print(new Gson().toJson(res));
     }
 

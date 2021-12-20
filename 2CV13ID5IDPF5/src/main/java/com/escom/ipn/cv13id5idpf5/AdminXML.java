@@ -33,14 +33,14 @@ import org.jdom2.output.XMLOutputter;
  * @author DEZKS
  */
 public class AdminXML {
+    //Atributos
     private Element Raiz = null;
     private Document oldDocXml = null;
     private Document newDocXml = null;
     private String RUTA = null;
     private File XmlFile = null;
     private FileOutputStream FOStream = null;
-    private FileWriter fw = null;
-    
+    //Constructor
     public AdminXML(String Ruta){
         XmlFile = new File(Ruta);
         if(XmlFile.exists()){
@@ -127,6 +127,7 @@ public class AdminXML {
         preguntaJson.setTamaño(pregunta.getChild("tamaño").getText());
         preguntaJson.setPuntero(pregunta.getChild("puntero").getAttributeValue("ruta"));
         preguntaJson.setRadar(pregunta.getChild("radar").getAttributeValue("ruta"));
+        escribir();
         return new Gson().toJson(preguntaJson);
     }
     private void deleteFiles(String RutaArchivos){
@@ -149,19 +150,24 @@ public class AdminXML {
         this.addContent(pregunta, data);
         escribir();
     }
+    //funcnion para obtener un iterador
     private Iterator<Element> getChildrenIterator(){
         return Raiz.getChildren().iterator();
     }
     public String getQuestionsToJson(){
         Collection Preguntas = new ArrayList();
+        //se obtiene el iterador
         Iterator<Element> preguntas = getChildrenIterator();
+        //se llena una coleccion de objetos que se van a devolver
         while(preguntas.hasNext()){
             Element Pregunta = preguntas.next();
             Pregunta pregunta = new Pregunta();
             pregunta.setNombre(Pregunta.getAttributeValue("nombrePregunta"));
             Preguntas.add(pregunta);
         }
+        //se llama a la funcion de escritura para evitar inconsistencias
         escribir();
+        //se regresa una cadena con formato Json con ayuda de la libreria Gson
         return new Gson().toJson(Preguntas);
     }
     
@@ -178,10 +184,12 @@ public class AdminXML {
         escribir();
         return new Gson().toJson(Sounds);
     }
-    public Boolean userEsist(Usuario user){
+    public Boolean userExist(Usuario user){
+        //se obtiene el iterador de los nodos hijos
         Iterator<Element> usuarios = getChildrenIterator();
         while(usuarios.hasNext()){
             Element usuario = usuarios.next();
+            //verifica si el usuario existe
             if(user.getName().equals(usuario.getAttributeValue("name"))){
                 return true;
             }
@@ -189,9 +197,11 @@ public class AdminXML {
         return false;
     }
     public Boolean loginUser(Usuario user){
+        //se obtiene el iterador
         Iterator<Element> usuarios = getChildrenIterator();
         while(usuarios.hasNext()){
             Element usuario = usuarios.next();
+            //si la contraseña es correcta retornara un valor verdadero y permitira el login
             if(user.getName().equals(usuario.getAttributeValue("name")) && user.getPassword().equals(usuario.getAttributeValue("password"))){
                 return true;
             }

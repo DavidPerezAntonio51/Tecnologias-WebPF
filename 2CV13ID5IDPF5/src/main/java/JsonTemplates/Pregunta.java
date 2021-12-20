@@ -10,17 +10,18 @@ package JsonTemplates;
  * @author DEZKS
  */
 public class Pregunta {
+    //Atributos
     private String Nombre = null;
     private Integer ValorI = null;
     private Integer ValorD = null;
     private Integer Tamaño = null;
     private String Puntero = null;
     private String Radar = null;
-    
+    //Constructor
     public Pregunta(){
         
     }
-
+    //Setters y Getters
     public String getNombre() {
         return Nombre;
     }

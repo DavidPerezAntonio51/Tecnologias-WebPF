@@ -30,6 +30,7 @@ public class login extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        //Se redirecciona con el mecanismo Request dispatcher la peticion al index del proyecto
         RequestDispatcher handlerRouter = request.getRequestDispatcher("/");
         handlerRouter.forward(request, response);
     }

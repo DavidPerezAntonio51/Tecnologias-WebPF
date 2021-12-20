@@ -40,13 +40,17 @@ public class getPointers extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        //Se obtiene el writer
         PrintWriter out = response.getWriter();
+        //Se agregan las cabeceras de la respuesta
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
+        //Se generan las rutas necesarias
         String Path = request.getServletContext().getRealPath("/");
         String PathPointers = Path+"data/PunterosDefault.xml";
+        //Se crea una instancia del Administrador de XML
         AdminXML Admin = new AdminXML(PathPointers);
-        
+        //Se envia la respuesta en formato JSON 
         out.print(Admin.getPointersToJson());
     }
     /**

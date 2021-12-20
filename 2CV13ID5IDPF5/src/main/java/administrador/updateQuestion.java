@@ -52,6 +52,7 @@ public class updateQuestion extends HttpServlet {
         String XMLpath = UserPath + "data\\preguntas.xml";
         AdminXML admin = new AdminXML(XMLpath);
         PrintWriter out = response.getWriter();
+        //se implementa modulo de carga de archivos solo si hay archivos en la request
         if(ServletFileUpload.isMultipartContent(request)){
             factory = new DiskFileItemFactory();
             factory.setSizeThreshold(maxMemSize);
@@ -59,12 +60,17 @@ public class updateQuestion extends HttpServlet {
             upload = new ServletFileUpload(factory);
             upload.setFileSizeMax(maxFileSize);
             try {
+                //se hae una lista de archivos y parametros
                 List<FileItem> parametros = upload.parseRequest(request);
+                //se crea un objeto HandlerPost y se pasan los parametros
                 HandlerPOST clasificador = new HandlerPOST(parametros);
                 clasificador.setUserPath(UserPath);
                 clasificador.setUser(Usuario);
+                //con el metodo buildMap, se genera un mapa de parametros
                 String nombrePregunta = clasificador.buildMap().get("NombrePregunta")[0];
+                //el mapa de parametros se envia al objeto adminxml para hacer una actualizacion de datos
                 admin.updateQuestion(nombrePregunta, UserPath+nombrePregunta, clasificador.buildMap());
+                //los archivos que se hayan subido se guardan en disco
                 clasificador.saveFiles();
                 
             } catch (FileUploadException ex) {
@@ -72,6 +78,7 @@ public class updateQuestion extends HttpServlet {
             }
             out.println("Multipart");
             response.sendRedirect("/2CV13ID5IDPF5/home");
+        //si no se encontraron archivos solo se guardan datos
         }else{
             Map<String, String[]> parametros = request.getParameterMap();
             String nombrePregunta = parametros.get("NombrePregunta")[0];
@@ -79,9 +86,6 @@ public class updateQuestion extends HttpServlet {
             System.err.println(nombrePregunta);
             response.sendRedirect("/2CV13ID5IDPF5/home");
         }
-        
-        //Cambiar la linea de Abajo por un forward al terminar el desarrollo
-        //response.sendRedirect("http://localhost:3000/2CV13ID5IDP3/");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -81,9 +81,6 @@ public class saveQuestion extends HttpServlet {
             //Cambiar en el proyecto final
             response.sendRedirect("/2CV13ID5IDPF5/home");
         }
-        
-        //Cambiar la linea de Abajo por un forward al terminar el desarrollo
-        //response.sendRedirect("http://localhost:3000/2CV13ID5IDP3/");
     }
 
     /**
